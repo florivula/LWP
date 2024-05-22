@@ -1402,7 +1402,7 @@ button,
 
 .scheme_original .sc_button.slider_button:hover {
 	background: #0a1f54!important;
-	color: #ffffff!important
+	color: #ffffff!important;
 }
 
 .scheme_original .persephone.tparrows {
@@ -8129,4 +8129,10 @@ h6.block_1477923107486 {
 }
 .sc_content .widget_area.content_elementbanner_about {
 	margin-top: 3.5em;
+}
+
+
+/*f*/
+.custom_margin_top {
+    margin-top: 10%;
 }
