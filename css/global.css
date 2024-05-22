@@ -8136,3 +8136,9 @@ h6.block_1477923107486 {
 .custom_margin_top {
     margin-top: 10%;
 }
+
+.ngjyr_extra{
+	background: -moz-linear-gradient(left, #1a62d6 9%, #20c9f8 55%);
+	background: -webkit-linear-gradient(left, #1a62d6 9%, #20c9f8 55%);
+	background: linear-gradient(to right, #1a62d6 9%, #20c9f8 55%);
+}
