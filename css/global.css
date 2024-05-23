@@ -8146,3 +8146,26 @@ h6.block_1477923107486 {
 .no-scroll{
 	overflow: hidden;
 }
+
+/* Initially hide both desktop and mobile view links */
+.desktop_view {
+    display: none;
+}
+
+.mobile_view {
+    display: none;
+}
+
+/* Show mobile view on devices with width less than or equal to 768px */
+@media (max-width: 768px) {
+    .mobile_view {
+        display: inline;
+    }
+}
+
+/* Show desktop view on devices with width greater than 768px */
+@media (min-width: 769px) {
+    .desktop_view {
+        display: inline-block;
+    }
+}
