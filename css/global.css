@@ -8142,3 +8142,7 @@ h6.block_1477923107486 {
 	background: -webkit-linear-gradient(left, #1a62d6 9%, #20c9f8 55%);
 	background: linear-gradient(to right, #1a62d6 9%, #20c9f8 55%);
 }
+
+.no-scroll{
+	overflow: hidden;
+}
