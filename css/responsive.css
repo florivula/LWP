@@ -1421,7 +1421,25 @@ Samsung Galaxy
     }
 
 }
+#fordesktop{
+    display: inline !important;
+}
+#formobile{
+    display: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+    #fordesktop{
+        display: none !important;
+    }
+    #formobile{
+        display: inline !important;
+    }
+  }
+
+
 @media (min-width: 768px) and (max-width: 800px){
+
     .margin_right_huge {
         margin-right: 3rem !important;
     }
