@@ -7146,6 +7146,23 @@ h6.block_heading{
 
 
 /*f*/
+
+.title_size{
+	font-size: medium !important;
+}
+
+#enlargeable-image {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#enlargeable-image.enlarged {
+    transform: scale(2); /* Adjust the scale as needed */
+    z-index: 1000;
+    position: relative;
+}
+
+
 .special-section {
     display: flex;
     flex-direction: column;
