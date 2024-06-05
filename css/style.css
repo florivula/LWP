@@ -7205,3 +7205,11 @@ h6.block_heading{
         text-align: center !important;
     }
 }
+
+.our-team-email{
+	color: white !important;
+	align-items: center !important;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+}
