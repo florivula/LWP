@@ -7213,3 +7213,14 @@ h6.block_heading{
 	justify-content: center;
 	align-items: center; 
 }
+
+.sc_googlemap {
+    position: relative;
+    z-index: 1; /* Ensure the map appears above other content */
+}
+
+/* Adjust the z-index of the text content to make sure it appears below the map */
+.sc_section.sc_section_block {
+    position: relative;
+    z-index: 0; /* Set a lower z-index for the text content */
+}

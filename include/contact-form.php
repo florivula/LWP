@@ -1,73 +1,55 @@
-<?php 
-//////////////////////////
-// Specify default values //
-//////////////////////////
+<?php
+// Database connection parameters
+$servername = "localhost";
+$username = "lwpeltgs_menot";
+$password = "#DP#h9Sv#9#2B7";
+$database = "lwpeltgs_contact-form";
 
-// Your E-mail
-$your_email = 'contact@lwp-energie.de';
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 
-// Default Subject if 'subject' field not specified
-$default_subject = 'Contact Us form';
-
-// Message if 'name' field not specified
-$name_not_specified = 'Please type a valid name';
-
-// Message if 'message' field not specified
-$message_not_specified = 'Please type a valid message';
-
-// Message if e-mail sent successfully
-$email_was_sent = 'Send message complete!';
-
-// Message if e-mail not sent (server not configured)
-$server_not_configured = 'Sorry, mail server not configured';
-
-
-///////////////////////////
-// Contact Form Processing //
-///////////////////////////
-$errors = array();
-if(isset($_POST['message']) && isset($_POST['name'])) {
-    if(!empty($_POST['name']))
-        $sender_name  = stripslashes(strip_tags(trim($_POST['name'])));
-    
-    if(!empty($_POST['message']))
-        $message      = stripslashes(strip_tags(trim($_POST['message'])));
-    
-    if(!empty($_POST['email']))
-        $sender_email = stripslashes(strip_tags(trim($_POST['email'])));
-    
-    if(!empty($_POST['subject']))
-        $subject      = stripslashes(strip_tags(trim($_POST['subject'])));
-
-    // Message if no sender name was specified
-    if(empty($sender_name)) {
-        $errors[] = $name_not_specified;
-    }
-
-    // Message if no message was specified
-    if(empty($message)) {
-        $errors[] = $message_not_specified;
-    }
-
-    $from = (!empty($sender_email)) ? 'From: '.$sender_email : '';
-
-    $subject = (!empty($subject)) ? $subject : $default_subject;
-
-    $message = "Name: $sender_name\nE-mail: $sender_email\nMessage: $message";
-
-    // Sending message if no errors
-    if(empty($errors)) {
-        if (mail($your_email, $subject, $message, $from)) {
-            echo $email_was_sent;
-        } else {
-            $errors[] = $server_not_configured;
-            echo implode('<br>', $errors);
-        }
-    } else {
-        echo implode('<br>', $errors);
-    }
-} else {
-    // if "name" or "message" vars not sent ('name' attribute of contact form input fields was changed)
-    echo '"name" and "message" variables were not received by server. Please check "name" attributes for your input fields';
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-?>
+
+// Process form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $message = $_POST["message"];
+
+    // Insert form data into database
+    $sql = "INSERT INTO form_submissions (name, email, message) VALUES ('$name', '$email', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close connection
+$conn->close();
+
+
+$mail_to_send_to = "name@anydomain.tld";
+$from_email = "from@yourdomain.tld";
+$sendflag = $_REQUEST['sendflag'];    
+$name=$_REQUEST['name'];
+if ( $sendflag == "send" )
+        {
+                $subject= "Message subject";
+                $email = $_REQUEST['email'] ;
+                $message= "\r\n" . "Name: $name" . "\r\n"; //get recipient name in contact form
+                $message = $message.$_REQUEST['message'] . "\r\n" ;//add message from the contact form to existing message(name of the client)
+                $headers = "From: $from_email" . "\r\n" . "Reply-To: $email"  ;
+                $a = mail( $mail_to_send_to, $subject, $message, $headers );
+                if ($a)
+                {
+                     print("Message was sent, you can send another one");
+                } else {
+                     print("Message wasn't sent, please check that you have changed emails in the bottom");
+                }
+        }
+        ?>

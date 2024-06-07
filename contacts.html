@@ -25,6 +25,17 @@
 		href='js/vendor/shortcodes/theme.shortcodes.css' type='text/css' media='all' />
 	<link property="stylesheet" rel='stylesheet' id='airsupply-responsive-style-css' href='css/responsive.css'
 		type='text/css' media='all' />
+
+		<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+	</script>
+	<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "YD-wnDiPMVAA-RVG6",
+      });
+   	})();
+	</script>
 </head>
 
 <body
@@ -267,15 +278,70 @@
 														<div id="sc_googlemap_1829197282" class="sc_googlemap"
 															data-zoom="16" data-style="default">
 															<div id="sc_googlemap_1829197282_1"
+															
+															
 																class="sc_googlemap_marker"
 																data-title="LWP-Energie GmbH"
 																data-description="&lt;div class=&quot;content_element&quot;&gt;&lt;div class=&quot;wrapper&quot;&gt;&lt;p&gt;&lt;strong&gt;LWP-Energie GmbH&lt;/strong&gt;&lt;br /&gt;Distribution, sales and consulting for air-heat pumps to individual customers and wholesalers.&lt;/p&gt;&lt;p&gt;Address: Rosenstraße 105,70794 Filderstadt&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;"
 																data-address="Rosenstraße 105, 70794 Filderstadt"
-																data-latlng="48.681640, 9.210339"
+																data-latlng="48.679908752441406,9.205619812011719"
 																data-point="images/map-marker.png"></div>
 														</div>
+														<script>
+															document.addEventListener('DOMContentLoaded', function() {
+															  var mapElement = document.getElementById('sc_googlemap_1829197282_1');
+															  var coords = {
+																zoom: 15,
+																markers: [
+																  {
+																	latlng: '48.679908752441406,9.205619812011719', // Example coordinates (New York City)
+																  }
+																]
+															  };
+															  airsupply_googlemap_init('sc_googlemap_1829197282_1', coords);
+															});
+														  </script>
 													</div>
-													<div class="column-1_2 sc_column_item sc_column_item_2 even">
+													<div class="column-1_2 sc_column_item sc_column_item_2 even" id="formobile" style="margin-top: 70% !important;">
+														<div
+															class="sc_section sc_section_block margin_top_null margin_left_small alignleft">
+															<div class="sc_section_inner">
+																<h2
+																	class="sc_section_title sc_item_title sc_item_title_without_descr">
+																	Finden Sie uns</h2>
+																<div class="sc_section_content_wrap">
+																	<h5
+																		class="sc_title sc_title_regular margin_top_small margin_bottom_null cerulean">
+																		Standort:</h5>
+																	<div class="content_element">
+																		<div class="wrapper">
+																			<p>Rosenstraße 105, 70794 Filderstadt</p>
+																		</div>
+																	</div>
+																	<h5
+																		class="sc_title sc_title_regular margin_top_small margin_bottom_null cerulean">
+																		Telefonnummern:</h5>
+																	<div class="content_element">
+																		<div class="wrapper">
+																			<p>+ 49 1520 1840389</p>
+																			<p>+ 49 1575 2981182</p>
+																		</div>
+																	</div>
+																	<h5
+																		class="sc_title sc_title_regular margin_top_small margin_bottom_null cerulean">
+																		E-Mail:</h5>
+																	<div class="content_element">
+																		<div class="wrapper">
+																			<p>contact@lwp-energie.de</p>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="column-1_2 sc_column_item sc_column_item_2 even" id="fordesktop">
 														<div
 															class="sc_section sc_section_block margin_top_null margin_left_small alignleft">
 															<div class="sc_section_inner">
@@ -335,8 +401,7 @@
 																		class="sc_form sc_form_style_form_1 margin_top_medium contact_form_1">
 																		<form id="sc_form_224916523_form"
 																			class="sc_input_hover_iconed contact_1"
-																			method="post"
-																			action="include/contact-form.php">
+																			method="post">
 																			<div class="sc_form_info">
 																				<div
 																					class="sc_form_item sc_form_field label_over">
@@ -370,7 +435,7 @@
 																			<div
 																				class="sc_form_item contact_form_message">
 																				<textarea id="contact_form_message"
-																					name="message"
+																					name="  "
 																					aria-required="true"></textarea>
 																				<label class="required"
 																					for="contact_form_message">
@@ -381,8 +446,7 @@
 																				</label>
 																			</div>
 																			<div class="sc_form_item sc_form_button">
-																				<button type="submit"
-																					name="contact_submit"
+																				<button name="submit" type="submit" onclick="sendMail()" value="send"
 																					class="contact_form_submit">Nachricht senden</button>
 																			</div>
 																			<div class="result sc_infobox"></div>
@@ -573,10 +637,16 @@
 		<script type='text/javascript' src='js/vendor/fw/js/core.init.js'></script>
 		<script type='text/javascript' src='js/custom/theme.init.js'></script>
 		<script type='text/javascript' src='js/vendor/shortcodes/theme.shortcodes.js'></script>
-		<script type='text/javascript' src='http://maps.google.com/maps/api/js?rnd=1118803086'></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjuhfv-5nu5Z3ATXeE7RdWX848uvpi58E&callback=initMap" async defer></script>
 		<script type='text/javascript' src='js/vendor/fw/js/core.googlemap.js'></script>
 		<script type='text/javascript' src='js/custom/global.js'></script>
 		<script type='text/javascript' src='js/custom/_form_contact.js'></script>
+		<style>
+			#sc_googlemap_1829197282_1 {
+			  height: 400px;
+			  width: 100%;
+			}
+		  </style>
 </body>
 
 </html>
