@@ -25,6 +25,7 @@
 		href='js/vendor/shortcodes/theme.shortcodes.css' type='text/css' media='all' />
 	<link property="stylesheet" rel='stylesheet' id='airsupply-responsive-style-css' href='css/responsive.css'
 		type='text/css' media='all' />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body
@@ -45,8 +46,8 @@
 							<div class="columns_wrap columns_fluid no_margins">
 								<div class="column-1_3 contact_logo">
 									<div class="logo">
-										<a href="index.html"><img src="images/logo-header.png" class="logo_main" alt="LWP Energie GmbH- Logo"
-												width="246" height="52"></a>
+										<a href="index.html"><img src="images/logo-header.png" class="logo_main"
+												alt="LWP Energie GmbH- Logo" width="246" height="52"></a>
 									</div>
 								</div>
 								<div class="contact_information column-2_3">
@@ -174,11 +175,11 @@
 															(R32)</span></a></li>
 												<li class="menu-item "><a href="monobloc2.html"><span>DC-Wechselrichter
 															EVI-Luftquelle (R32)</span></a></li>
-												<li class="menu-item "><a
-														href="monobloc3.html"><span>DC-Wechselrichter Luft-Wasser
+												<li class="menu-item "><a href="monobloc3.html"><span>DC-Wechselrichter
+															Luft-Wasser
 															(R290)</span></a></li>
-												<li class="menu-item "><a
-														href="monobloc4.html"><span>DC-Wechselrichter Luft-Wasser
+												<li class="menu-item "><a href="monobloc4.html"><span>DC-Wechselrichter
+															Luft-Wasser
 															(R32)</span></a></li>
 											</ul>
 										</li>
@@ -193,12 +194,13 @@
 												<li class="menu-item "><a href="splitunit3.html"><span>DC-Inverter
 															Luftquelle
 															(R32)</span></a></li>
-												<li class="menu-item "><a
-														href="splitunit4.html"><span>DC-Wechselrichter Erdungsquelle</span></a>
+												<li class="menu-item "><a href="splitunit4.html"><span>DC-Wechselrichter
+															Erdungsquelle</span></a>
 												</li>
 											</ul>
 										</li>
-										<li class="menu-item menu-item"><a href="watertanker.html"><span>Wasser Tanks</span></a>
+										<li class="menu-item menu-item"><a href="watertanker.html"><span>Wasser
+													Tanks</span></a>
 										</li>
 									</ul>
 								</li>
@@ -271,8 +273,7 @@
 																		class="sc_form sc_form_style_form_1 margin_top_medium contact_form_1">
 																		<form id="sc_form_224916523_form"
 																			class="sc_input_hover_iconed contact_1"
-																			method="post"
-																			action="include/contact-form.php">
+																			method="post" onsubmit="sendMailJoin(event)">
 																			<div class="sc_form_info">
 																				<div
 																					class="sc_form_item sc_form_field label_over">
@@ -309,29 +310,37 @@
 																					class="wpcf7-form-control-wrap menu-377">
 																					<select name="menu-377"
 																						class="wpcf7-form-control wpcf7-select select_menu"
-																						aria-invalid="false">
+																						aria-invalid="false"
+																						id="menu_select">
 																						<option
 																							value="Beitreten als...">
 																							Beitreten als...</option>
-																						<option value="option1">
+																						<option value="Teammitglied">
 																							Teammitglied</option>
-																						<option value="option2">
+																						<option
+																							value="Verkäufer Regional">
 																							Verkäufer Regional</option>
-																						<option value="option3">
-																							Verkäufer Bundesweit</option>
-																						<option value="option4">
-																							Kunden-Berater Regional</option>
-																						<option value="option5">
-																							Kunden-Berater Bundesweit</option>
-																						<option value="option6">
+																						<option
+																							value="Verkäufer Bundesweit">
+																							Verkäufer Bundesweit
+																						</option>
+																						<option
+																							value="Kunden-Berater Regional">
+																							Kunden-Berater Regional
+																						</option>
+																						<option
+																							value="Kunden-Berater Bundesweit">
+																							Kunden-Berater Bundesweit
+																						</option>
+																						<option
+																							value="Telefon Notdienst">
 																							Telefon Notdienst</option>
 																					</select>
 																				</span><br />
 																			</div>
 																			<div
 																				class="sc_form_item contact_form_message">
-																				<textarea id="contact_form_message"
-																					name="message"
+																				<textarea id="message" name="message"
 																					aria-required="true"></textarea>
 																				<label class="required"
 																					for="contact_form_message">
@@ -349,6 +358,14 @@
 																			</div>
 																			<div class="result sc_infobox"></div>
 																		</form>
+
+																		<script
+																			src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+																		<script
+																			src="https://cdn.emailjs.com/dist/email.min.js"></script>
+																		<script
+																			src="js/custom/_form_contact_join_us.js"></script>
+
 																	</div>
 																</div>
 															</div>
@@ -391,7 +408,8 @@
 															<p>
 																<input type="email" name="EMAIL"
 																	placeholder="Newslatter Subscribe" required />
-																<input style="margin-top: 3%;" type="submit" value="Abonnieren" />
+																<input style="margin-top: 3%;" type="submit"
+																	value="Abonnieren" />
 															</p>
 															<div class="hidden"><input type="text"
 																	name="_mc4wp_honeypot" value="" tabindex="-1"
