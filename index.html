@@ -33,14 +33,8 @@
 		href='js/vendor/fw/js/swiper/swiper.css' type='text/css' media='all' />
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 	</script>
-	<script type="text/javascript">
-		(function () {
-			emailjs.init({
-				publicKey: "YD-wnDiPMVAA-RVG6",
-			});
-		})();
-	</script>
 	<script type='text/javascript' src='js/custom/_form_contact_index.js'></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body
@@ -795,8 +789,8 @@
 																			</div>
 																			<div class="sc_services_item_content">
 																				<h4 class="sc_services_item_title"><a
-																						href="watertankers-category.html">Water
-																						Tankers</a>
+																						href="watertankers-category.html">Wasser
+																						Tanks</a>
 																				</h4>
 																				<div
 																					class="sc_services_item_description">
@@ -910,7 +904,8 @@
 																	<div role="form" class="wpcf7" lang="en-US"
 																		dir="ltr">
 																		<div class="screen-reader-response"></div>
-																		<form novalidate="novalidate">
+																		<form novalidate="novalidate"
+																			onsubmit="sendMailQuote(event)">
 																			<div class="hidden">
 																				<input type="hidden" name="_wpcf7"
 																					value="394" />
@@ -928,63 +923,79 @@
 																			</div>
 																			<p>
 																				<span
-																					class="wpcf7-form-control-wrap first-name"><input
-																						type="text" name="first-name"
+																					class="wpcf7-form-control-wrap first-name">
+																					<input type="text" name="first-name"
 																						value="" size="40"
 																						class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required first_name"
 																						aria-required="true"
 																						aria-invalid="false"
 																						id="first_name"
-																						placeholder="Vorname" /></span>
+																						placeholder="Vorname" />
+																				</span>
 																				<span
-																					class="wpcf7-form-control-wrap last-name"><input
-																						type="text" name="last-name"
+																					class="wpcf7-form-control-wrap last-name">
+																					<input type="text" name="last-name"
 																						value="" size="40"
 																						class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required last_name"
 																						aria-required="true"
 																						aria-invalid="false"
 																						id="last_name"
-																						placeholder="Nachname" /></span><br />
+																						placeholder="Nachname" />
+																				</span>
+																				<br />
 																				<span
-																					class="wpcf7-form-control-wrap your-email"><input
-																						type="email" name="your-email"
+																					class="wpcf7-form-control-wrap your-email">
+																					<input type="email"
+																						name="your-email"
 																						class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email your_email"
 																						aria-required="true"
 																						aria-invalid="false"
 																						style="width: 100% !important;"
 																						id="email"
-																						placeholder="Deine E-Mail" /></span><br />
+																						placeholder="Deine E-Mail" />
+																				</span>
+																				<br />
 																				<span
 																					class="wpcf7-form-control-wrap menu-377">
 																					<select name="menu-377"
 																						class="wpcf7-form-control wpcf7-select select_menu"
-																						aria-invalid="false" id="menu_select">
+																						aria-invalid="false"
+																						id="menu_select">
 																						<option
 																							value="Interested in...">
 																							Interessiert an...</option>
-																						<option value="Persönliche Beratung">
+																						<option
+																							value="Persönliche Beratung">
 																							Persönliche Beratung
 																						</option>
-																						<option value="Einholen
-																						eines Angebots">Einholen
-																							eines Angebots</option>
-																						<option value="Preise
-																						pro Einheit">Preise
-																							pro Einheit</option>
-																						<option value="Termin
-																						vereinbaren">Termin
-																							vereinbaren</option>
-																						<option value="Der
-																						Produktkatalog">Der
-																							Produktkatalog</option>
+																						<option
+																							value="Einholen eines Angebots">
+																							Einholen eines Angebots
+																						</option>
+																						<option
+																							value="Preise pro Einheit">
+																							Preise pro Einheit</option>
+																						<option
+																							value="Termin vereinbaren">
+																							Termin vereinbaren</option>
+																						<option
+																							value="Der Produktkatalog">
+																							Der Produktkatalog</option>
 																					</select>
-																				</span><br />
+																				</span>
+																				<br />
 																				<input type="submit"
 																					value="Antrag einreichen"
-																					class="wpcf7-form-control wpcf7-submit"
-																					onclick="sendMailQuote()" />
+																					class="wpcf7-form-control wpcf7-submit" />
 																			</p>
 																		</form>
+
+																		<script
+																			src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+																		<script
+																			src="https://cdn.emailjs.com/dist/email.min.js"></script>
+																		<script
+																			src="js/custom/_form_contact_index.js"></script>
 																	</div>
 																</div>
 															</div>
