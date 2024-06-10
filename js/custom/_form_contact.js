@@ -9,7 +9,7 @@ function sendMail(event) {
 
     let parms = {
         contact_form_username: document.getElementById("contact_form_username").value,
-        contact_form_email: document.getElementById("contact_form_email").value,
+        email: document.getElementById("contact_form_email").value,
         contact_form_message: document.getElementById("contact_form_message").value
     };
 

@@ -12,7 +12,7 @@ function sendMailJoin(event) {
         message: document.getElementById("message").value
     };
 
-    emailjs.send("service_9xy9hwr", "TEMPLATE NR QITU", parms)
+    emailjs.send("service_9xy9hwr", "template_o1lsk9g", parms)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
             Swal.fire({
